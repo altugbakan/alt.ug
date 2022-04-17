@@ -2,7 +2,9 @@
 My personal website.
 
 ## Usage
-To run the app in development mode, use `npm start`.
+- Clone or Fork the project.
+- Use `npm i` to install dependencies.
+- Use `npm start` run the app in development mode.
 
 ## Build
 This project is built using [React](https://reactjs.org/) and [Tailwind CSS](https://tailwindcss.com/).

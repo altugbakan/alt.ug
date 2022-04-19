@@ -3,7 +3,7 @@ import Project from "./Project";
 const Projects = () => {
     return (
         <div>
-            <h2 className="text-white text-2xl font-bold mb-2">Projects:</h2>
+            <h2 className="text-white text-2xl font-bold mb-4">Projects:</h2>
             <ul className="text-white list-disc">
                 <li className="mb-2">
                     <Project href="https://github.com/altugbakan/arduino-spotify-controller" title="Arduino Spotify Controller"

@@ -1,8 +1,9 @@
 const Logo = (props) => {
     return (
-        <a href={props.href} target="_blank" rel="noreferrer" className="m-2 scale-75 ring-zinc-600
-                hover:ring-4 hover:bg-zinc-600 hover:scale-100 rounded-full">
-            <img src={props.img} alt={props.alt} width={props.size} height={props.size} />
+        <a href={props.href} target="_blank" rel="noreferrer" className="ml-4 mt-2">
+            <svg className={`fill-zinc-400 hover:fill-${props.color} hover:scale-125 ${props.extra}`} viewBox={props.viewBox} height={props.size} width={props.size}>
+                <path d={props.path} />
+            </svg>
         </a>
     )
 }

@@ -3,8 +3,8 @@ import Projects from "./Components/Projects"
 
 export default function App() {
   return (
-    <div className="flex flex-row justify-center">
-      <div className="flex flex-col ml-2 mr-2 h-screen max-w-screen-xl">
+    <div className="flex flex-row justify-center h-full">
+      <div className="flex flex-col ml-2 mr-2 max-w-screen-xl">
         <NavBar />
         <div className="flex flex-col items-center">
           <h1 className="text-3xl font-bold text-white mb-6 lg:mb-12 text-center">

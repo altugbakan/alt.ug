@@ -1,9 +1,9 @@
 import Project from "./Project";
 
-const Projects = () => {
+const Projects = (props) => {
     const marginBottom = "mb-4";
     return (
-        <div>
+        <div className={props.className}>
             <h2 className="text-white text-2xl font-bold mb-4">Projects:</h2>
             <ul className="text-white lg:list-disc">
                 <li className={marginBottom}>
@@ -28,6 +28,7 @@ const Projects = () => {
                 </li>
             </ul>
         </div>
-    )
+    );
 }
+
 export default Projects;

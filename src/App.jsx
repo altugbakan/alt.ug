@@ -1,7 +1,7 @@
-import NavBar from "./Components/NavBar"
-import Projects from "./Components/Projects"
+import NavBar from "./components/NavBar"
+import Projects from "./components/Projects"
 
-export default function App() {
+const App = () => {
   return (
     <div className="flex flex-row justify-center h-full">
       <div className="flex flex-col ml-2 mr-2 max-w-screen-xl">
@@ -15,5 +15,7 @@ export default function App() {
         <footer className="text-zinc-400 mt-auto ml-auto mr-auto">contact me at <a href="mailto:mail@alt.ug" className="hover:underline">mail@alt.ug</a></footer>
       </div>
     </div>
-  )
+  );
 }
+
+export default App;

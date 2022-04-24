@@ -25,7 +25,7 @@ import Ubuntu from "../images/ubuntu.png";
 import VisualStudio from "../images/visualstudio.png";
 import VsCode from "../images/vscode.png";
 
-const Technologies = [
+const SkillData = [
     { img: C, alt: "C", href: "https://www.iso.org/standard/74528.html/" },
     { img: Cpp, alt: "C++", href: "https://isocpp.org/" },
     { img: CSharp, alt: "C#", href: "https://docs.microsoft.com/en-us/dotnet/csharp/" },
@@ -54,4 +54,4 @@ const Technologies = [
     { img: Arduino, alt: "Arduino", href: "https://arduino.cc/" },
 ];
 
-export default Technologies;
+export default SkillData;

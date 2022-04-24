@@ -47,27 +47,26 @@ const NavBar = () => {
                     </button>
                 </div>
             </nav>
-            <div className={`${hidden ? "hidden" : "flex"} flex-col justify-center text-center fixed right-0 w-3/5 bg-zinc-700 text-zinc-400 rounded-md`}>
+            <div className={`${hidden ? "hidden" : "flex"} flex-col justify-center text-center fixed right-1 w-3/5 bg-zinc-700 text-zinc-400 rounded-md`}>
                 {
-                    hidden ? "" :
-                        <ul className="mb-8 mt-8 divide-y-2 divide-zinc-600">
-                            {
-                                Logos.map((logo) => {
-                                    return (
-                                        <li key={logo.name}>
-                                            <a href={logo.href} target="_blank" rel="noreferrer">
-                                                <div className="flex flex-row items-center mt-2 mb-2 justify-center">
-                                                    <svg className="h-8 w-8 fill-zinc-400 mr-2" viewBox={logo.viewBox}>
-                                                        <path d={logo.path} />
-                                                    </svg>
-                                                    <span>{logo.name}</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    );
-                                })
-                            }
-                        </ul>
+                    <ul className="mb-8 mt-8 divide-y-2 divide-zinc-600">
+                        {
+                            Logos.map((logo) => {
+                                return (
+                                    <li key={logo.name}>
+                                        <a href={logo.href} target="_blank" rel="noreferrer">
+                                            <div className="flex flex-row items-center mt-2 mb-2 justify-center">
+                                                <svg className="h-8 w-8 fill-zinc-400 mr-2" viewBox={logo.viewBox}>
+                                                    <path d={logo.path} />
+                                                </svg>
+                                                <span>{logo.name}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                );
+                            })
+                        }
+                    </ul>
                 }
             </div>
         </div>

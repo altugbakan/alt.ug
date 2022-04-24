@@ -14,6 +14,7 @@ import Hardhat from "../images/hardhat.png";
 import Html from "../images/html.png";
 import Js from "../images/js.png";
 import Linux from "../images/linux.png";
+import Node from "../images/node.png";
 import Python from "../images/python.png";
 import PyTorch from "../images/pytorch.png";
 import Qt from "../images/qt.png";
@@ -34,6 +35,7 @@ const Technologies = [
     { img: Css, alt: "CSS", href: "https://www.w3.org/TR/CSS/#css/" },
     { img: Tailwind, alt: "Tailwind CSS", href: "https://tailwindcss.com/" },
     { img: Js, alt: "JavaScript", href: "https://www.ecma-international.org/publications-and-standards/standards/ecma-262/" },
+    { img: Node, alt: "Node.js", href: "https://nodejs.org/" },
     { img: React, alt: "React", href: "https://reactjs.org/" },
     { img: Ethereum, alt: "Ethereum", href: "https://ethereum.org/" },
     { img: Solidity, alt: "Solidity", href: "https://soliditylang.org/" },

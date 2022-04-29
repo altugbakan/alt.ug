@@ -40,6 +40,7 @@ const VisitorNFT = (props) => {
         }
         checkWalletConnected();
         ethereum.on("accountsChanged", checkWalletConnected);
+        ethereum.on("chainChanged", (_chainId) => window.location.reload());
     }, [ethereum]);
 
 
@@ -77,6 +78,7 @@ const VisitorNFT = (props) => {
                     method: "wallet_switchEthereumChain",
                     params: [{ chainId: "0xa" }],
                 });
+                window.location.reload();
             } catch (switchError) {
                 // This error code indicates that the chain has not been added to MetaMask.
                 if (switchError.code === 4902 || switchError?.data?.orginalError?.code === 4902) {

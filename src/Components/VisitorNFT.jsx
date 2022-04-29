@@ -72,12 +72,27 @@ const VisitorNFT = (props) => {
         setChainId(await ethereum.request({ method: "eth_chainId" }));
 
         if (chainId !== CHAIN_ID) {
-            await ethereum.request({ method: "wallet_addEthereumChain", params: [OPTIMISM_MAINNET_PARAMS] });
-            setChainId(await ethereum.request({ method: "eth_chainId" }));
-            return;
+            try {
+                await ethereum.request({
+                    method: "wallet_switchEthereumChain",
+                    params: [{ chainId: "0xa" }],
+                });
+            } catch (switchError) {
+                // This error code indicates that the chain has not been added to MetaMask.
+                if (switchError.code === 4902 || switchError?.data?.orginalError?.code === 4902) {
+                    try {
+                        await ethereum.request({
+                            method: "wallet_addEthereumChain",
+                            params: [OPTIMISM_MAINNET_PARAMS],
+                        });
+                    } catch {
+                        return;
+                    }
+                }
+            }
         }
-
         setCurrentAccount(accounts[0]);
+        setChainId(await ethereum.request({ method: "eth_chainId" }));
     }
 
     const mint = async () => {

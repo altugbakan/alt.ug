@@ -9,7 +9,7 @@ const NavBar = () => {
         if (ref.current && !ref.current.contains(event.target)) {
             setHidden(true);
         }
-    };
+    }
 
     useEffect(() => {
         document.addEventListener('mousedown', handleHideMenu, true);

@@ -1,6 +1,7 @@
 import NavBar from "./components/NavBar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import VisitorNFT from "./components/VisitorNFT";
 
 const App = () => {
   return (
@@ -14,6 +15,9 @@ const App = () => {
           <div>
             <Projects className="mb-8" />
             <Skills className="mb-8" />
+            {
+              window.ethereum ? <VisitorNFT className="mb-8" /> : ""
+            }
           </div>
         </div>
         <footer className="text-zinc-400 mt-auto ml-auto mr-auto">contact me at <a href="mailto:mail@alt.ug" className="hover:underline">mail@alt.ug</a></footer>

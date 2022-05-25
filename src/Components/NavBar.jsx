@@ -31,8 +31,8 @@ const NavBar = () => {
                         Logos.map((logo) => {
                             return (
                                 <a key={logo.href} href={logo.href} target="_blank" rel="noreferrer" className="ml-4 mt-2">
-                                    <svg className={`fill-zinc-400 hover:scale-125 w-8 h-8 ${logo.color}`} viewBox={logo.viewBox}>
-                                        <path d={logo.path} />
+                                    <svg className={`group fill-zinc-400 hover:scale-125 w-8 h-8 ${logo.color}`} viewBox={logo.viewBox}>
+                                        {logo.image}
                                     </svg>
                                 </a>
                             );

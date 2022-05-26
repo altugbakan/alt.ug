@@ -16,7 +16,7 @@ const App = () => {
             <Projects className="mb-8" />
             <Skills className="mb-8" />
             {
-              window.ethereum ? <VisitorNFT className="mb-8" /> : ""
+              window.ethereum ? <VisitorNFT className="mb-8" /> : null
             }
           </div>
         </div>

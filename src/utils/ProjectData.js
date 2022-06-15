@@ -3,8 +3,14 @@ import Gums from "../images/gums.gif";
 import Thels from "../images/thels.png";
 import StellarQuestGo from "../images/stellarquestgo.png";
 import VanityMonKeyGenerator from "../images/vanitymonkeygenerator.png";
+import CryptoRewardCards from "../images/cryptorewardcards.png";
 
 const ProjectData = [
+    {
+        name: "Crypto Reward Cards", href: "https://reward-cards.surge.sh",
+        img: CryptoRewardCards, description: "A way for business owners to reward their users with automated token rewards and membership tiers.",
+        github: "https://github.com/reward-cards/reward-cards",
+    },
     {
         name: "Arduino Spotify Controller", href: "https://create.arduino.cc/projecthub/Altug/opla-spotify-controller-6e7bc4",
         img: ArduinoSpotifyController, description: "Allows you to control your Spotify player using Arduino Oplà IoT Kit and Spotify Web API.",

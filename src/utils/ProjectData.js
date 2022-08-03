@@ -22,7 +22,7 @@ const ProjectData = [
         github: "https://github.com/theloanstream/thels",
     },
     {
-        name: "Crypto Gums", href: "https://cryptogum.shop/",
+        name: "Crypto Gums", href: "https://gums.surge.sh/",
         img: Gums, description: "Personalized generative Gum NFTs on Polygon blockchain.",
         github: "https://github.com/altugbakan/crypto-gums",
     },

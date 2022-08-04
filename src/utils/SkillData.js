@@ -13,7 +13,6 @@ import Go from "../images/go.png";
 import Hardhat from "../images/hardhat.png";
 import Html from "../images/html.png";
 import Js from "../images/js.png";
-import Linux from "../images/linux.png";
 import Node from "../images/node.png";
 import Python from "../images/python.png";
 import PyTorch from "../images/pytorch.png";
@@ -21,7 +20,6 @@ import Qt from "../images/qt.png";
 import React from "../images/react.png";
 import Solidity from "../images/solidity.png";
 import Tailwind from "../images/tailwind.png";
-import Ubuntu from "../images/ubuntu.png";
 import VisualStudio from "../images/visualstudio.png";
 import VsCode from "../images/vscode.png";
 
@@ -45,8 +43,6 @@ const SkillData = [
     { img: Flask, alt: "Flask", href: "https://flask.palletsprojects.com/" },
     { img: Git, alt: "Git", href: "https://git-scm.com/" },
     { img: GitHub, alt: "GitHub", href: "https://github.com/" },
-    { img: Linux, alt: "Linux", href: "https://www.kernel.org/" },
-    { img: Ubuntu, alt: "Ubuntu", href: "https://ubuntu.com/" },
     { img: Qt, alt: "Qt", href: "https://www.qt.io/" },
     { img: VisualStudio, alt: "Visual Studio", href: "https://visualstudio.microsoft.com/" },
     { img: VsCode, alt: "Visual Studio Code", href: "https://code.visualstudio.com/" },

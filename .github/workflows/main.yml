@@ -22,5 +22,8 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
         server: ftp.netim.hosting
+        local-dir: ./build/
+        server-dir: ./public_www/
+        dangerous-clean-slate: true
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}

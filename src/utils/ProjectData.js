@@ -4,8 +4,14 @@ import Thels from "../images/thels.png";
 import StellarQuestGo from "../images/stellarquestgo.png";
 import VanityMonKeyGenerator from "../images/vanitymonkeygenerator.png";
 import CryptoRewardCards from "../images/cryptorewardcards.png";
+import Vapor from "../images/vapor.png";
 
 const ProjectData = [
+    {
+        name: "Vapor", href: "https://vapor-app.vercel.app",
+        img: Vapor, description: "Allows people to create no-gas trade offers between tokens and NFTs.",
+        github: "https://github.com/vapor-swap/vapor-contracts",
+    },
     {
         name: "Crypto Reward Cards", href: "https://reward-cards.surge.sh",
         img: CryptoRewardCards, description: "A way for business owners to reward their users with automated token rewards and membership tiers.",

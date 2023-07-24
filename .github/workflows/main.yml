@@ -5,25 +5,29 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
 
-    - name: Use Node.js 14
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-      
-    - name: 🔨 Build Project
-      run: |
-        npm install
-        npm run build
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
-      with:
-        server: ftp.netim.hosting
-        local-dir: ./build/
-        server-dir: ./public_www/
-        dangerous-clean-slate: true
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: ⬇️ Install dependencies
+        run: npm install
+
+      - name: 🧪 Test project
+        run: npm run test
+
+      - name: 📦 Build project
+        run: npm run build
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.4
+        with:
+          server: ftp.netim.hosting
+          local-dir: ./build/
+          server-dir: ./public_www/
+          dangerous-clean-slate: true
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}

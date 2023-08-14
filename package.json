@@ -8,8 +8,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "test": "cypress run"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/tailwind": "^4.0.0",
@@ -18,7 +17,6 @@
     "theme-change": "^2.5.0"
   },
   "devDependencies": {
-    "cypress": "^12.17.2",
     "daisyui": "^3.5.0"
   }
 }

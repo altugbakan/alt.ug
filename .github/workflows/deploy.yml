@@ -26,7 +26,7 @@ jobs:
         run: npm run build
 
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ftp.netim.hosting
           local-dir: ./build/

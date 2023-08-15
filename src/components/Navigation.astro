@@ -1,32 +1,19 @@
 ---
+import icon from "../assets/icon.png";
 ---
 
-<div class="navbar bg-base-100">
+<nav class="flex flex-row justify-between m-4">
   <div class="flex-1">
-    <a class="flex flex-row justify-center font-mono font-bold" href="/">
-      <div class="flex items-center">
-        <span class="text-sm">&gt;</span>
-      </div>
-      <span class="text-xl">a</span>
+    <a class="flex flex-row gap-2" href="/">
+      <img src={icon} height="32px" width="32px" />
+      <p class="font-rubik flex items-center font-semibold text-2xl">alt.ug</p>
     </a>
   </div>
   <div class="flex space-x-4 mr-5">
-    <a class="hover:underline underline-offset-4 text-xl" href="/about/">
+    <a class="link" href="/about/">
       About
     </a>
     <a class="hover:underline underline-offset-4 text-xl" href="/blog/">Blog</a>
-    <a class="hover:underline underline-offset-4 text-xl" href="/tags/">Tags</a>
+    <a class="hover:underline underline-offset-4 text-xl" href="/projects/">Projects</a>
   </div>
-  <div class="flex-none">
-    <ul class="menu menu-horizontal px-1">
-      <li>
-        <button
-          data-toggle-theme="forest,pastel"
-          class="btn btn-circle btn-outline">
-          <i class="fa-solid fa-sun dark:hidden text-2xl m-0"></i>
-          <i class="fa-solid fa-moon hidden dark:inline text-2xl m-0"></i>
-        </button>
-      </li>
-    </ul>
-  </div>
-</div>
+</nav>

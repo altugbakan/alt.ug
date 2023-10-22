@@ -1,5 +1,6 @@
-/** @type {import("prettier").Config} */
-module.exports = {
+import type { Config } from "prettier";
+
+export default {
   plugins: ["prettier-plugin-astro"],
   overrides: [
     {
@@ -9,6 +10,5 @@ module.exports = {
       },
     },
   ],
-  htmlWhitespaceSensitivity: "ignore",
   bracketSameLine: true,
-};
+} satisfies Config;

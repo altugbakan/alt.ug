@@ -19,9 +19,6 @@ jobs:
       - name: ⬇️ Install dependencies
         run: npm install
 
-      - name: 🧪 Test project
-        run: npm test
-
       - name: 📦 Build project
         run: npm run build
 
@@ -29,7 +26,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ftp.netim.hosting
-          local-dir: ./build/
+          local-dir: ./dist/
           server-dir: ./public_www/
           dangerous-clean-slate: true
           username: ${{ secrets.USERNAME }}

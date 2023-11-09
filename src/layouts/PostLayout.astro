@@ -1,0 +1,28 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  post: CollectionEntry<"posts">;
+};
+
+const { post } = Astro.props;
+---
+
+<style is:global>
+  .post > h1 {
+    @apply text-4xl font-bold my-4;
+  }
+  .post > h2 {
+    @apply text-2xl font-bold mt-4 mb-2;
+  }
+  .post > p > a {
+    @apply text-blue-500 hover:underline;
+  }
+</style>
+
+<BaseLayout title={post.data.title}>
+  <div class="post">
+    <slot />
+  </div>
+</BaseLayout>

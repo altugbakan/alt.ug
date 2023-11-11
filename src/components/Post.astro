@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  post: CollectionEntry<"posts">;
+};
+
+const { post } = Astro.props;
+---
+
+<li class="mb-4">
+  <p class="text-gray-500 text-sm">
+    {post.data.date.toLocaleDateString()} ·
+    {
+      post.data.tags.flatMap((tag, i, arr) => [
+        <a href={`/tags/${tag}`} class="hover:underline">
+          {tag}
+        </a>,
+        i < arr.length - 1 ? ", " : "",
+      ])
+    }
+  </p>
+  <div class="flex flex-row items-center gap-4">
+    <a href={`/blog/${post.slug}`} class="hover:underline">
+      <h3 class="text-xl font-bold">{post.data.title}</h3>
+    </a>
+    <p class="text-gray-500">{post.data.description}</p>
+  </div>
+</li>

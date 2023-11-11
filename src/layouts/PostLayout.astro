@@ -10,9 +10,6 @@ const { post } = Astro.props;
 ---
 
 <style is:global>
-  .post > h1 {
-    @apply text-4xl font-bold my-4;
-  }
   .post > h2 {
     @apply text-2xl font-bold mt-4 mb-2;
   }
@@ -23,6 +20,21 @@ const { post } = Astro.props;
 
 <BaseLayout title={post.data.title}>
   <div class="post">
+    <h1 class="text-4xl font-bold">{post.data.title}</h1>
+    {
+      post.data.tags && (
+        <div class="mb-4 mt-1 flex flex-row gap-x-2">
+          {post.data.tags.map((tag) => (
+            <a
+              href={`/tags/${tag}`}
+              class="text-sm hover:underline text-gray-500"
+            >
+              {tag}
+            </a>
+          ))}
+        </div>
+      )
+    }
     <slot />
   </div>
 </BaseLayout>

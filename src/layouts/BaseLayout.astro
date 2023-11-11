@@ -1,8 +1,9 @@
 ---
 import Navigation from "../components/Navigation.astro";
-interface Props {
+
+type Props = {
   title: string;
-}
+};
 
 const { title } = Astro.props;
 ---
@@ -42,7 +43,8 @@ const { title } = Astro.props;
   </head>
 
   <body
-    class="max-w-2xl mx-auto min-h-ful px-2 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-zinc-900 dark:to-zinc-800 text-black dark:text-white">
+    class="max-w-2xl mx-auto min-h-ful px-2 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-zinc-900 dark:to-zinc-800 text-black dark:text-white"
+  >
     <Navigation />
     <hr class="my-4 h-0.5 border-t-0 bg-slate-50 dark:bg-zinc-600" />
     <slot />

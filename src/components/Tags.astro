@@ -1,0 +1,19 @@
+---
+interface Props {
+  tags: string[];
+  className?: string;
+}
+
+const { tags, className } = Astro.props;
+---
+
+<span class={className}>
+  {
+    tags.flatMap((tag, i, arr) => [
+      <a href={`/tags/${tag}`} class="hover:underline">
+        {tag}
+      </a>,
+      i < arr.length - 1 ? ", " : "",
+    ])
+  }
+</span>

@@ -1,5 +1,11 @@
 ---
 import { Icon } from "astro-icon";
+
+interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
 ---
 
 <script>
@@ -13,31 +19,38 @@ import { Icon } from "astro-icon";
   button.addEventListener("click", toggleTheme);
 </script>
 
-<nav class="flex flex-row justify-between items-center mt-4">
-  <section class="flex-1 sm:block hidden">
-    <a class="flex flex-row gap-2 mr-auto" href="/">
-      <img
-        src="/images/icon.png"
-        alt="alt.ug Logo"
-        height="32px"
-        width="32px"
-      />
-      <p class="font-rubik flex items-center font-semibold text-2xl">alt.ug</p>
-    </a>
-  </section>
-  <section class="flex gap-4 flex-1 justify-around">
-    <a class="hover:underline underline-offset-4 text-xl" href="/about/">
-      About
-    </a>
-    <a class="hover:underline underline-offset-4 text-xl" href="/blog/">Blog</a>
-    <a class="hover:underline underline-offset-4 text-xl" href="/projects/">
-      Projects
-    </a>
-  </section>
-  <section class="flex-1">
-    <button class="flex align-center flex-1 ml-auto" toggle-theme-button>
-      <Icon name="ph:moon-fill" class="w-6 h-6 hidden dark:block" />
-      <Icon name="ph:sun-fill" class="w-6 h-6 block dark:hidden" />
-    </button>
-  </section>
+<nav class={className}>
+  <div class="flex flex-row justify-between items-center mt-4">
+    <section class="flex-1 sm:block hidden">
+      <a class="flex flex-row gap-2 mr-auto" href="/">
+        <img
+          src="/images/icon.png"
+          alt="alt.ug Logo"
+          height="32px"
+          width="32px"
+        />
+        <p class="font-rubik flex items-center font-semibold text-2xl">
+          alt.ug
+        </p>
+      </a>
+    </section>
+    <section class="flex gap-4 flex-1 justify-around">
+      <a class="hover:underline underline-offset-4 text-xl" href="/about/">
+        About
+      </a>
+      <a class="hover:underline underline-offset-4 text-xl" href="/blog/"
+        >Blog</a
+      >
+      <a class="hover:underline underline-offset-4 text-xl" href="/projects/">
+        Projects
+      </a>
+    </section>
+    <section class="flex-1">
+      <button class="flex align-center flex-1 ml-auto" toggle-theme-button>
+        <Icon name="ph:moon-fill" class="w-6 h-6 hidden dark:block" />
+        <Icon name="ph:sun-fill" class="w-6 h-6 block dark:hidden" />
+      </button>
+    </section>
+  </div>
+  <hr class="my-4 h-0.5 border-t-0 bg-slate-50 dark:bg-zinc-600" />
 </nav>

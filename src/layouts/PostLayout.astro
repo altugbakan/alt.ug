@@ -1,10 +1,11 @@
 ---
+import Tags from "../components/Tags.astro";
 import BaseLayout from "./BaseLayout.astro";
 import type { CollectionEntry } from "astro:content";
 
-type Props = {
+interface Props {
   post: CollectionEntry<"posts">;
-};
+}
 
 const { post } = Astro.props;
 ---
@@ -21,20 +22,7 @@ const { post } = Astro.props;
 <BaseLayout title={post.data.title}>
   <div class="post">
     <h1 class="text-4xl font-bold">{post.data.title}</h1>
-    {
-      post.data.tags && (
-        <div class="mb-4 mt-1 flex flex-row gap-x-2">
-          {post.data.tags.map((tag) => (
-            <a
-              href={`/tags/${tag}`}
-              class="text-sm hover:underline text-gray-500"
-            >
-              {tag}
-            </a>
-          ))}
-        </div>
-      )
-    }
+    <Tags tags={post.data.tags} className="text-gray-500 block mt-1 mb-4" />
     <slot />
   </div>
 </BaseLayout>

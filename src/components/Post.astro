@@ -1,9 +1,10 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import Tags from "./Tags.astro";
 
-type Props = {
+interface Props {
   post: CollectionEntry<"posts">;
-};
+}
 
 const { post } = Astro.props;
 ---
@@ -11,14 +12,7 @@ const { post } = Astro.props;
 <li class="mb-4">
   <p class="text-gray-500 text-sm">
     {post.data.date.toLocaleDateString()} ·
-    {
-      post.data.tags.flatMap((tag, i, arr) => [
-        <a href={`/tags/${tag}`} class="hover:underline">
-          {tag}
-        </a>,
-        i < arr.length - 1 ? ", " : "",
-      ])
-    }
+    <Tags tags={post.data.tags} className="text-gray-500 text-sm" />
   </p>
   <div class="flex flex-row items-center gap-4">
     <a href={`/blog/${post.slug}`} class="hover:underline">

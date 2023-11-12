@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Post from "../../components/Post.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = posts.filter((post) => post.data.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+function kebabToPascal(kebab: string) {
+  return kebab.replace(/\w\S*/g, (w) =>
+    w.replace(/^\w/, (c) => c.toUpperCase())
+  );
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout title={`${kebabToPascal(tag)} Posts`}>
+  <p class="text-4xl font-bold mb-4">Posts tagged with {kebabToPascal(tag)}</p>
+  <ul>
+    {posts.map((post) => <Post post={post} />)}
+  </ul>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+import { Icon } from "astro-icon";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Not Found">
+  <h1 class="text-5xl text-bold text-center mt-16">404</h1>
+  <p class="text-2xl text-center my-4">This page does not exist.</p>
+  <a
+    class="flex flex-row justify-center items-center gap-1 mt-4 text-blue-700 dark:text-blue-500 hover:underline mx-auto"
+    href="/"
+  >
+    <Icon name="mdi:arrow-left" class="w-4 h-4" />
+    <span class="text-center">Go back home</span>
+  </a>
+</BaseLayout>

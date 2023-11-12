@@ -1,0 +1,28 @@
+---
+import Tags from "../components/Tags.astro";
+import BaseLayout from "./BaseLayout.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+
+const { post } = Astro.props;
+---
+
+<style is:global>
+  .post > h2 {
+    @apply text-2xl font-bold mt-4 mb-2;
+  }
+  .post > p > a {
+    @apply text-blue-500 hover:underline;
+  }
+</style>
+
+<BaseLayout title={post.data.title}>
+  <div class="post">
+    <h1 class="text-4xl font-bold">{post.data.title}</h1>
+    <Tags tags={post.data.tags} className="text-gray-500 block mt-1 mb-4" />
+    <slot />
+  </div>
+</BaseLayout>

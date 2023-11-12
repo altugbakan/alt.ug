@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  link: string;
+  github: string;
+  technologies: string[];
+}
+
+const { title, description, link, github, technologies } = Astro.props;
+---
+
+<h1>
+  {title}
+  {description}
+  {link}
+  {github}
+  {technologies.map((tech) => <span>{tech}</span>)}
+</h1>

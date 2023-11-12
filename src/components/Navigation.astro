@@ -21,15 +21,18 @@ const { className } = Astro.props;
 
 <nav class={className}>
   <div class="flex flex-row justify-between items-center mt-4">
-    <section class="flex-1 sm:block hidden">
+    <section class="flex-1">
       <a class="flex flex-row gap-2 mr-auto" href="/">
         <img
           src="/images/icon.png"
           alt="alt.ug Logo"
           height="32px"
           width="32px"
+          class="sm:block hidden"
         />
-        <p class="font-rubik flex items-center font-semibold text-2xl">
+        <p
+          class="font-rubik flex items-center font-semibold sm:text-2xl text-lg"
+        >
           alt.ug
         </p>
       </a>

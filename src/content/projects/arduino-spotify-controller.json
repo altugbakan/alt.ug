@@ -3,5 +3,6 @@
   "description": "A Spotify Controller using the Arduino Oplà IoT Kit.",
   "url": "https://projecthub.arduino.cc/Altug/25780838-7da0-4642-b43b-1fbfa5ad6117",
   "github": "https://github.com/altugbakan/arduino-spotify-controller",
-  "technologies": ["Arduino", "C++"]
+  "technologies": ["Arduino", "C++"],
+  "date": "2022-10"
 }

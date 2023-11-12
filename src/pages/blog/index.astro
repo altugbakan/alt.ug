@@ -1,24 +1,17 @@
 ---
-import Post from "../../components/Post.astro";
+import LatestPosts from "../../components/LatestPosts.astro";
 import Tags from "../../components/Tags.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
-const allPosts = await getCollection("posts");
+const posts = await getCollection("posts");
 ---
 
 <BaseLayout title="Altuğ's Blog">
   <h1 class="text-4xl font-bold text-center mb-6">Latest Posts</h1>
-  <ul>
-    {
-      allPosts
-        .sort((post) => post.data.date.getTime())
-        .slice(0, 5)
-        .map((post) => <Post post={post} />)
-    }
-  </ul>
+  <LatestPosts count={5} />
   <h1 class="text-4xl font-bold text-center my-6">Tags</h1>
   <p class="flex flex-row flex-wrap gap-2">
-    <Tags tags={allPosts.flatMap((post) => post.data.tags)} />
+    <Tags tags={posts.flatMap((post) => post.data.tags)} />
   </p>
 </BaseLayout>

@@ -1,4 +1,5 @@
 ---
+import LatestPosts from "../components/LatestPosts.astro";
 import Socials from "../components/Socials.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
@@ -21,5 +22,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
        about my experiences.
     </h3>
     <Socials />
+  </section>
+  <section class="mt-8">
+    <h1 class="text-3xl font-bold mb-5">Latest Posts</h1>
+    <LatestPosts count={3} />
   </section>
 </BaseLayout>

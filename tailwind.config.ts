@@ -6,6 +6,11 @@ export default {
     fontFamily: {
       rubik: ["Rubik", "sans-serif"],
     },
+    extend: {
+      minHeight: {
+        screen: ["100vh", "100svh"] as any,
+      },
+    },
   },
   darkMode: "class",
 } satisfies Config;

@@ -21,8 +21,9 @@ const { title } = Astro.props;
 >
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Altuğ's Portfolio" />
+    <meta name="description" content="Altuğ's Personal Webpage" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="index, follow" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -34,6 +35,20 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
     <title>{title}</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alt.ug/" />
+    <meta property="og:title" content="Altuğ Bakan" />
+    <meta property="og:description" content="My personal website" />
+    <meta property="og:image" content="https://alt.ug/meta.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://alt.ug/" />
+    <meta property="twitter:title" content="Altuğ Bakan" />
+    <meta property="twitter:description" content="My personal website" />
+    <meta property="twitter:image" content="https://alt.ug/meta.png" />
 
     <script is:inline>
       let theme = localStorage.getItem("theme");

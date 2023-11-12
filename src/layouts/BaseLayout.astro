@@ -9,8 +9,16 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en" class="min-h-screen">
+<style>
+  html.dark {
+    @apply bg-zinc-900 from-zinc-900 to-zinc-800 text-white;
+  }
+</style>
+
+<html
+  lang="en"
+  class="bg-slate-100 bg-gradient-to-br from-slate-100 to-slate-200 text-black dark:text-white"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Altuğ's Portfolio" />
@@ -43,9 +51,7 @@ const { title } = Astro.props;
     </script>
   </head>
 
-  <body
-    class="max-w-2xl mx-auto flex flex-col min-h-screen px-2 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-zinc-900 dark:to-zinc-800 text-black dark:text-white"
-  >
+  <body class="max-w-2xl mx-auto flex flex-col min-h-screen px-2">
     <Navigation />
     <slot />
     <Footer />

@@ -13,7 +13,7 @@ Astro is a static site generator, which is also pretty fast. Since this website 
 
 ## Markdown
 
-I've been trying to write in markdown for a while now, and I really like it. It's a lot easier to write in markdown than in HTML, and it's also a lot easier to read. I also like that I can write my posts in my code editor, [VSCode](https://code.visualstudio.com/), and then the posts just magically appear on my website after pushing the newest changes.
+I've been trying to write in markdown for a while now, and I really like it. It's a lot easier to write in markdown than in HTML, and it's also a lot easier to read while editing. I also like that I can write my posts in my code editor, [VSCode](https://code.visualstudio.com/), and then the posts just magically appear on my website after pushing the newest changes.
 
 ## Conclusion
 

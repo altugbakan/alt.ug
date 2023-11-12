@@ -1,8 +1,8 @@
+name: 🚀 Deploy website
 on:
   push:
     branches:
       - main
-name: 🚀 Deploy website
 jobs:
   deploy:
     name: 🎉 Deploy
@@ -28,6 +28,5 @@ jobs:
           server: ftp.netim.hosting
           local-dir: ./dist/
           server-dir: ./public_www/
-          dangerous-clean-slate: true
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}

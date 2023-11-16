@@ -9,15 +9,9 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<style>
-  html.dark {
-    @apply bg-zinc-900 from-zinc-900 to-zinc-800 text-white;
-  }
-</style>
-
 <html
   lang="en"
-  class="bg-slate-100 bg-gradient-to-br from-slate-100 to-slate-200 text-black dark:text-white"
+  class="bg-slate-100 bg-gradient-to-br from-slate-100 to-slate-200 text-black"
 >
   <head>
     <meta charset="UTF-8" />
@@ -49,6 +43,12 @@ const { title } = Astro.props;
     <meta property="twitter:title" content="Altuğ Bakan" />
     <meta property="twitter:description" content="My personal website" />
     <meta property="twitter:image" content="https://alt.ug/images/meta.png" />
+
+    <style is:global>
+      html.dark {
+        @apply bg-zinc-900 from-zinc-900 to-zinc-800 text-white;
+      }
+    </style>
 
     <script is:inline>
       let theme = localStorage.getItem("theme");

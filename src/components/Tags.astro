@@ -10,7 +10,11 @@ const { tags, className } = Astro.props;
 <span class={className}>
   {
     tags.flatMap((tag, i, arr) => [
-      <a href={`/tags/${tag}`} class="hover:underline">
+      <a
+        href={`/tags/${tag}`}
+        class="hover:underline"
+        aria-label={`Posts tagged ${tag}`}
+      >
         {tag}
       </a>,
       i < arr.length - 1 ? ", " : "",

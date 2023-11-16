@@ -7,20 +7,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout title="Altuğ Bakan">
   <section class="mx-auto">
     <h1 class="text-5xl my-8 font-bold text-center">Hi, I'm Altuğ</h1>
-    <h3 class="my-4 text-lg">
+    <p class="my-4 text-lg">
       I'm a software engineer building
       <a
         class="text-blue-700 dark:text-blue-500 hover:underline"
         href="/projects"
+        aria-label="open-source projects"
       >
         open-source projects</a
       >
        and
-      <a class="text-blue-700 dark:text-blue-500 hover:underline" href="/blog"
-        >blogging</a
+      <a
+        class="text-blue-700 dark:text-blue-500 hover:underline"
+        href="/blog"
+        aria-label="blogging">blogging</a
       >
        about my experiences.
-    </h3>
+    </p>
     <Socials />
   </section>
   <section class="mt-8">

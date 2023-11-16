@@ -22,7 +22,7 @@ const { className } = Astro.props;
 <nav class={className}>
   <div class="flex flex-row justify-between items-center mt-4">
     <section class="flex-1">
-      <a class="flex flex-row gap-2 mr-auto" href="/">
+      <a class="flex flex-row gap-2 mr-auto" href="/" aria-label="alt.ug">
         <img
           src="/images/icon.png"
           alt="alt.ug Logo"
@@ -38,18 +38,32 @@ const { className } = Astro.props;
       </a>
     </section>
     <section class="flex gap-4 flex-1 justify-around">
-      <a class="hover:underline underline-offset-4 text-xl" href="/about/">
+      <a
+        class="hover:underline underline-offset-4 text-xl"
+        href="/about/"
+        aria-label="About Altuğ"
+      >
         About
       </a>
-      <a class="hover:underline underline-offset-4 text-xl" href="/blog/"
-        >Blog</a
+      <a
+        class="hover:underline underline-offset-4 text-xl"
+        href="/blog/"
+        aria-label="Altuğ's Blog">Blog</a
       >
-      <a class="hover:underline underline-offset-4 text-xl" href="/projects/">
+      <a
+        class="hover:underline underline-offset-4 text-xl"
+        href="/projects/"
+        aria-label="Altuğ's Projects"
+      >
         Projects
       </a>
     </section>
     <section class="flex-1">
-      <button class="flex align-center flex-1 ml-auto" toggle-theme-button>
+      <button
+        class="flex align-center flex-1 ml-auto"
+        toggle-theme-button
+        aria-label="Toggle theme"
+      >
         <Icon name="ph:moon-fill" class="w-6 h-6 hidden dark:block" />
         <Icon name="ph:sun-fill" class="w-6 h-6 block dark:hidden" />
       </button>

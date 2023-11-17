@@ -1,11 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import Me from "../images/me.jpg";
 ---
 
 <BaseLayout title="About Altuğ">
   <h1 class="text-center text-4xl font-bold mb-4">About Me</h1>
-  <img
-    src="/images/me.jpg"
+  <Image
+    src={Me}
+    height={1200}
+    width={1200}
     alt="My picture"
     class="mx-auto mb-4 rounded-full w-48 h-48 object-cover object-center"
   />

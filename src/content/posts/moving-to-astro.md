@@ -1,8 +1,8 @@
 ---
 title: Moving to Astro
-description: Moving to Astro for my new website
+description: Moving to Astro for my new website.
 date: 2023-11-09
-tags: ["astro", "programming"]
+tags: [astro, programming]
 ---
 
 I've been using [React](https://reactjs.org/) for my website for a while now, but I felt like it was a bit overkill for a simple website like mine. I was looking for something that was a bit more lightweight and easier to use, and also allow me to write my posts in markdown. I found [Astro](https://astro.build/) and it seemed like a good fit for what I was looking for.

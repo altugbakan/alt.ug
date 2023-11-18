@@ -1,0 +1,38 @@
+---
+name: Arduino Spotify Controller
+description: A Spotify Controller using the Arduino Oplà IoT Kit.
+url: https://projecthub.arduino.cc/Altug/25780838-7da0-4642-b43b-1fbfa5ad6117
+github: https://github.com/altugbakan/arduino-spotify-controller
+technologies: [Arduino, C++]
+date: 2022-10
+---
+
+import BlogImage from "../../components/BlogImage.astro";
+import OplaKit from "../../images/opla-kit.webp";
+import SpotifyController from "../../images/spotify-controller.png";
+
+I stumbled upon [Arduino Cloud Games](https://blog.arduino.cc/2022/01/13/let-your-ideas-take-flight-in-the-arduino-cloud-games/), and saw that in the first part attendees were supposed to pitch their idea for a free [Arduino Oplà IoT Kit](https://store.arduino.cc/products/arduino-opla-iot-kit?selectedStore=eu) to be incorporated in the following steps. Since I did not have any other electronic components or a workshop of my own, I decided to build a project that would only use the Oplà IoT Kit.
+
+<BlogImage
+  src={OplaKit}
+  alt="Arduino Oplà IoT Kit"
+  className="w-96"
+  description="Arduino Oplà IoT Kit. Image by Arduino."
+/>
+
+I thought that this kit would be perfect for a Spotify Controller, since it has a display, a Wi-Fi module, and a few buttons. I pitched my idea, and I was lucky enough to be selected as one of the 100 participants to receive a free kit.
+
+## The Project
+
+The project is a Spotify Controller that can be used to play/pause, skip, and go back to the previous song. It also displays the current song and artist on the screen. The project is built using the Arduino Oplà IoT Kit, and it is connected to the Spotify API. The project is open source, and you can find the code on <a href={frontmatter.github}>GitHub</a> and <a href={frontmatter.url}>Arduino Project Hub</a>.
+
+<BlogImage
+  src={SpotifyController}
+  alt="Spotfiy Controller"
+  className="w-96"
+  description="Spotify Controller."
+/>
+
+It works by first making the device acting as a server, and then displaying the user a link to connect their Spotify account. After the user connects their account, the device gets an access token from the Spotify API, and starts displaying the current song and artist on the screen. The user can then use the buttons to control the playback.
+
+The hardest thing about this project was trying to parse the [JSON response from the Spotify API](https://developer.spotify.com/documentation/web-api/reference/get-the-users-currently-playing-track). The response is pretty huge for the Arduino, as it does not have a lot of memory inside the device. I had to use a library called [ArduinoJson](https://arduinojson.org/), which allows you to parse JSON responses without having to store the whole response in memory. This allowed me to parse the response without running out of memory.

@@ -9,10 +9,7 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<html
-  lang="en"
-  class="bg-slate-100 bg-gradient-to-br from-slate-100 to-slate-200 text-black"
->
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Altuğ's Personal Webpage" />
@@ -30,6 +27,7 @@ const { title } = Astro.props;
       as="style"
       onload="this.onload=null; this.rel='stylesheet'; document.body.classList.add('fontLoaded')"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <title>{title}</title>
 
     <!-- Open Graph / Facebook -->
@@ -47,8 +45,11 @@ const { title } = Astro.props;
     <meta property="twitter:image" content="https://alt.ug/images/meta.png" />
 
     <style>
+      html {
+        @apply bg-slate-100 bg-gradient-to-br from-slate-100 to-slate-200 text-black leading-relaxed;
+      }
       html.dark {
-        @apply bg-zinc-900 from-zinc-900 to-zinc-800 text-white;
+        @apply bg-zinc-900 from-zinc-900 to-zinc-800 text-gray-300;
       }
     </style>
 

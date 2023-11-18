@@ -1,0 +1,41 @@
+---
+import Icon from "astro-icon";
+import BaseLayout from "./BaseLayout.astro";
+import type { CollectionEntry } from "astro:content";
+import {techToIcon} from "../utils/techToIcon";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+---
+
+<style is:global>
+  .post > h1 {
+    @apply text-4xl font-bold;
+  }
+  .post > h2 {
+    @apply text-2xl font-bold mt-4 mb-2;
+  }
+  .post > p > a {
+    @apply text-blue-700 dark:text-blue-500 hover:underline;
+  }
+  .post > p {
+    @apply mb-4;
+  }
+  .post > img {
+    @apply my-4;
+  }
+</style>
+
+<BaseLayout title={project.data.name}>
+  <h1 class="text-4xl font-bold mb-4">{project.data.name}</h1>
+  <div class="post">
+    <slot />
+  </div>
+  <h2 class="text-2xl font-bold mt-4 mb-2">Technologies</h2>
+  <p class="flex flex-row gap-2">
+    {project.data.technologies.map((tech) => <span>{tech}</span>)}
+  </p>
+</BaseLayout>

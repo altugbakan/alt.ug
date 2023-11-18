@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Project from "../../components/Project.astro";
+
+const projects = (await getCollection("projects")).sort((p) => {
+  return Date.parse(p.data.date);
+});
+---
+
+<BaseLayout title="Altuğ's Projects">
+  <h1 class="text-center text-4xl font-bold mb-6">Projects</h1>
+  {projects.map((project) => <Project project={project} />)}
+</BaseLayout>

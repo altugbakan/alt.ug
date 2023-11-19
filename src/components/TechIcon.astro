@@ -1,0 +1,22 @@
+---
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+
+function getIcon(): string {
+  switch (name) {
+    case "Arduino":
+      return "icon-[devicon--arduino]";
+    case "C++":
+      return "icon-[devicon--cplusplus]";
+    case "Rust":
+      return "icon-[simple-icons--rust]";
+    default:
+      return `icon-[carbon--unknown]`;
+  }
+}
+---
+
+<span class={`${getIcon()} text-4xl`} />

@@ -1,5 +1,4 @@
 ---
-import Icon from "astro-icon";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -18,17 +17,15 @@ const { project } = Astro.props;
   <p class="text-gray- dark:text-gray-400 mb-2">
     {project.data.description}
   </p>
-  <div class="flex flex-row space-between gap-2">
+  <div class="flex flex-row align-middle gap-2">
     <a
       href={project.data.url}
       rel="noopener noreferrer"
       target="_blank"
       aria-label={`Visit project ${project.data.name}'s webpage`}
     >
-      <Icon
-        name="mdi:globe"
-        class="inline-block w-5 h-5 mr-1 hover:scale-110"
-      />
+      <span
+        class="icon-[mdi--globe] text-xl hover:scale-110" />
     </a>
     <a
       href={project.data.github}
@@ -36,10 +33,7 @@ const { project } = Astro.props;
       target="_blank"
       aria-label={`Visit project ${project.data.name}'s GitHub`}
     >
-      <Icon
-        name="mdi:github"
-        class="inline-block w-5 h-5 mr-1 hover:scale-110"
-      />
+      <span class="icon-[mdi--github] text-xl hover:scale-110" />
     </a>
   </div>
 </div>

@@ -1,8 +1,7 @@
 ---
-import Icon from "astro-icon";
 import BaseLayout from "./BaseLayout.astro";
+import TechIcon from "../components/TechIcon.astro";
 import type { CollectionEntry } from "astro:content";
-import {techToIcon} from "../utils/techToIcon";
 
 interface Props {
   project: CollectionEntry<"projects">;
@@ -36,6 +35,6 @@ const { project } = Astro.props;
   </div>
   <h2 class="text-2xl font-bold mt-4 mb-2">Technologies</h2>
   <p class="flex flex-row gap-2">
-    {project.data.technologies.map((tech) => <span>{tech}</span>)}
+    {project.data.technologies.map((tech) => <TechIcon name={tech} />)}
   </p>
 </BaseLayout>

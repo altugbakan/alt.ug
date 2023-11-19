@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
 import Logo from "../images/logo.png";
 
@@ -66,8 +65,8 @@ const { className } = Astro.props;
         toggle-theme-button
         aria-label="Toggle theme"
       >
-        <Icon name="ph:moon-fill" class="w-6 h-6 hidden dark:block" />
-        <Icon name="ph:sun-fill" class="w-6 h-6 block dark:hidden" />
+        <span class="icon-[ph--moon-fill] text-2xl hidden dark:block" />
+        <span class="icon-[ph--sun-fill] text-2xl block dark:hidden" />
       </button>
     </section>
   </div>

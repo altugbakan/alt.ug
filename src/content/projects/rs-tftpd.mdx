@@ -1,0 +1,45 @@
+---
+name: TFTP Server Daemon
+description: Purely Rust-based TFTP server daemon.
+url: https://crates.io/crates/tftpd
+github: https://github.com/altugbakan/rs-tftpd
+technologies: [Rust]
+date: 2023-03
+---
+
+import BlogImage from "../../components/BlogImage.astro";
+import TftpTimeout from "../../images/tftp-timeout.jpg";
+import TftpHelp from "../../images/tftp-help.png";
+
+I was working with microcontrollers at work, and we were using [TFTP](https://www.rfc-editor.org/rfc/rfc1350) to upload the firmware. We sometimes had issues with the u-boot firmware upload — sometimes the board was unable to receive a packet. This issue was quite annoying, as when it worked, it was quite fast, and it made the development and production process much easier.
+
+<BlogImage src={TftpTimeout} alt="Timeout on u-boot upload.">
+  Timeout on u-boot upload. Image by [Lup Yuen
+  Lee](https://lupyuen.github.io/articles/tftp2)
+</BlogImage>
+
+I think that [Rust](https://www.rust-lang.org/) is a great language for writing system software, and to learn it, I decided to write a TFTP server daemon in Rust. I was also interested in learning more about networking, and this project was a great opportunity to learn more about it.
+
+## The Project
+
+The TFTP Server Daemon is a TFTP server written in pure Rust. I challenged myself to not use any external libraries to gain a deeper understanding of the language. I also wanted it to be an actual production-ready server, so I based it on [RFC 1350](https://www.rfc-editor.org/rfc/rfc1350) with [RFC 2347](https://www.rfc-editor.org/rfc/rfc2347) TFTP Option Extensions. I implemented all the features that I could think of, such as:
+
+- [RFC 2348](https://www.rfc-editor.org/rfc/rfc2348) Blocksize Option
+- [RFC 2349](https://www.rfc-editor.org/rfc/rfc2349) Timeout Interval Option
+- [RFC 2349](https://www.rfc-editor.org/rfc/rfc2349) Transfer Size Option
+- [RFC 7440](https://www.rfc-editor.org/rfc/rfc7440) Windowsize Option
+
+There are also additional features that I added, such as multi-client communication, read-only mode, packet duplication, and more. I also added quality of life features, such as configuring the upload and download directories, port selection, and more. Check out the [config.rs](https://github.com/altugbakan/rs-tftpd/blob/main/src/config.rs) file to learn more about the configuration options.
+
+To install and run the server, you can use the following command:
+
+```bash
+cargo install tftpd
+tftpd --help
+```
+
+<BlogImage src={TftpHelp} alt="Help for TFTP Server.">
+  Help for TFTP Server.
+</BlogImage>
+
+I'm really glad to see that the project is being [used by people](https://github.com/altugbakan/rs-tftpd/issues?q=is%3Aissue). I've received a lot of feedback and [contributions](https://github.com/altugbakan/rs-tftpd/graphs/contributors), and I'm planning to add more features to the project in case someone needs them for their use case. If you have any feedback or feature requests, feel free to open an issue on the <a href={frontmatter.github}>GitHub repository</a>.

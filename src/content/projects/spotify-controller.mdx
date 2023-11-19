@@ -13,25 +13,20 @@ import SpotifyController from "../../images/spotify-controller.png";
 
 I stumbled upon [Arduino Cloud Games](https://blog.arduino.cc/2022/01/13/let-your-ideas-take-flight-in-the-arduino-cloud-games/), and saw that in the first part attendees were supposed to pitch their idea for a free [Arduino Oplà IoT Kit](https://store.arduino.cc/products/arduino-opla-iot-kit?selectedStore=eu) to be incorporated in the following steps. Since I did not have any other electronic components or a workshop of my own, I decided to build a project that would only use the Oplà IoT Kit.
 
-<BlogImage
-  src={OplaKit}
-  alt="Arduino Oplà IoT Kit"
-  className="w-96"
-  description="Arduino Oplà IoT Kit. Image by Arduino."
-/>
-
-I thought that this kit would be perfect for a Spotify Controller, since it has a display, a Wi-Fi module, and a few buttons. I pitched my idea, and I was lucky enough to be selected as one of the 100 participants to receive a free kit.
+<BlogImage src={OplaKit} alt="Arduino Oplà IoT Kit" className="w-96">
+  Arduino Oplà IoT Kit. Image by Arduino.
+</BlogImage>
+I thought that this kit would be perfect for a Spotify Controller, since it has a
+display, a Wi-Fi module, and a few buttons. I pitched my idea, and I was lucky enough
+to be selected as one of the 100 participants to receive a free kit.
 
 ## The Project
 
 The project is a Spotify Controller that can be used to play/pause, skip, and go back to the previous song. It also displays the current song and artist on the screen. The project is built using the Arduino Oplà IoT Kit, and it is connected to the Spotify API. The project is open source, and you can find the code on <a href={frontmatter.github}>GitHub</a> and <a href={frontmatter.url}>Arduino Project Hub</a>.
 
-<BlogImage
-  src={SpotifyController}
-  alt="Spotfiy Controller"
-  className="w-96"
-  description="Spotify Controller."
-/>
+<BlogImage src={SpotifyController} alt="Spotfiy Controller" className="w-96">
+  Spotify Controller.
+</BlogImage>
 
 It works by first making the device acting as a server, and then displaying the user a link to connect their Spotify account. After the user connects their account, the device gets an access token from the Spotify API, and starts displaying the current song and artist on the screen. The user can then use the buttons to control the playback.
 

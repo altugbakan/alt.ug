@@ -23,6 +23,9 @@ const { project } = Astro.props;
   .project a {
     @apply text-blue-700 dark:text-blue-500 hover:underline;
   }
+  .project pre {
+    @apply p-2 rounded-lg;
+  }
 </style>
 
 <BaseLayout title={project.data.name}>

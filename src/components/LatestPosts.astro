@@ -13,7 +13,7 @@ const { count } = Astro.props;
 <ul>
   {
     posts
-      .sort((post) => post.data.date.getTime())
+      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
       .slice(0, count)
       .map((post) => <Post post={post} />)
   }

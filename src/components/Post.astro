@@ -11,19 +11,19 @@ const { post } = Astro.props;
 
 <li class="mb-4">
   <p class="text-gray-500 dark:text-gray-400 text-sm">
-    {post.data.date.toLocaleDateString()} ·
+    {post.data.date.toLocaleDateString("en-GB")} ·
     <Tags
       tags={post.data.tags}
       className="text-gray-500 dark:text-gray-400 text-sm"
     />
   </p>
-  <div class="flex flex-row items-center gap-4">
+  <div class="flex flex-row items-center gap-2">
     <a
       href={`/blog/${post.slug}`}
       class="hover:underline"
       aria-label={`Blog post about ${post.data.description}`}
     >
-      <h2 class="text-xl font-bold">{post.data.title}</h2>
+      <h2 class="text-xl font-bold w-48">{post.data.title}</h2>
     </a>
     <p class="text-gray-500 dark:text-gray-400">{post.data.description}</p>
   </div>

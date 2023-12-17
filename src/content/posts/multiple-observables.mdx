@@ -1,0 +1,142 @@
+---
+title: Processing Multiple Observables
+description: Using an RxJS Observable response to make multiple endpoint calls.
+date: 2023-12-14
+tags: [rxjs, programming]
+---
+
+import BlogImage from "../../components/BlogImage.astro";
+import GetValues from "../../images/observables/get-values.svg";
+import GetValuesDark from "../../images/observables/get-values-dark.svg";
+import DoubleValue from "../../images/observables/double-value.svg";
+import DoubleValueDark from "../../images/observables/double-value-dark.svg";
+import TripleValue from "../../images/observables/triple-value.svg";
+import TripleValueDark from "../../images/observables/triple-value-dark.svg";
+import Overall from "../../images/observables/overall.svg";
+import OverallDark from "../../images/observables/overall-dark.svg";
+import Map from "../../images/observables/map.svg";
+import MapDark from "../../images/observables/map-dark.svg";
+import MergeAllHigherOrder from "../../images/observables/merge-all-higher-order.svg";
+import MergeAllHigherOrderDark from "../../images/observables/merge-all-higher-order-dark.svg";
+import MergeAllArray from "../../images/observables/merge-all-array.svg";
+import MergeAllArrayDark from "../../images/observables/merge-all-array-dark.svg";
+import ForkJoin from "../../images/observables/fork-join.svg";
+import ForkJoinDark from "../../images/observables/fork-join-dark.svg";
+import InitialSolution from "../../images/observables/initial-solution.svg";
+import InitialSolutionDark from "../../images/observables/initial-solution-dark.svg";
+import FinalSolution from "../../images/observables/final-solution.svg";
+import FinalSolutionDark from "../../images/observables/final-solution-dark.svg";
+
+If you have used [Angular](https://angular.dev) for frontend development, you have definitely dealt with [RxJS](https://rxjs.dev) `Observable`s. These seemingly magic `async` values can be hard to process, especially if you are not experienced with [functional programming](https://www.geeksforgeeks.org/functional-programming-paradigm/).
+
+In this post, we will try to process a service that returns an `Observable<number[]>`, and use each of the responses to call two more services to further process our data.
+
+## Modeling the process
+
+We will use [marble diagrams](https://rxjs.dev/guide/operators#marble-diagrams) to model our process. I have used [Swirly](https://swirly.dev) to generate the following diagrams. Please note that exact timing is not that important for our problem, so lines from left to right do not represent the timings accurately.
+
+### Modeling calls
+
+Initially, we will have an observable that emits an array of values. Since a concrete example makes more sense to me, let's make it return the array `[1, 2, 3]`. We will call this function `getValues()`.
+
+<BlogImage src={GetValues} darkSrc={GetValuesDark} alt="Observable that emits an array">
+    Our initial observable, which returns an `Observable<number[]>`
+</BlogImage>
+
+We also need two processing functions, which both will have `Observable<number>` return values. Let's create a function that doubles the input and one that triples the input. We will call these functions `doubleValue()` and `tripleValue()` respectively.
+
+<BlogImage src={DoubleValue} darkSrc={DoubleValueDark} alt="Function that outputs double of the input as an observable">
+    `doubleValue()` function, that doubles the input and returns the output as an `Observable<number>`
+</BlogImage>
+
+<BlogImage src={TripleValue} darkSrc={TripleValueDark} alt="Function that outputs triple of the input as an observable">
+    `tripleValue()` function, that triples the input and returns the output as an `Observable<number>`
+</BlogImage>
+
+Note that these functions do not directly map a value to another. These functions return `Observable`s, which aim to simulate external calls for processing values.
+
+### Modeling overall process
+
+Now, let's put everything together to model the whole process end to end. This will help us get a better overview of how everything will work together.
+
+<BlogImage
+  src={Overall}
+  darkSrc={OverallDark}
+  alt="Overall modeling of the problem"
+>
+  Initial modeling of the overall problem
+</BlogImage>
+
+We need some "magic" functions that can convert our state from one to the other, which are marked with `???`. We first need a way to convert the array to single values, so we can pipe them all together to get two values for each number. Another thing to keep in mind is that `doubleValue()` and `tripleValue()` functions spawn new `Observable`s, so we get an `Observable` of `Observable`s, concisely a "Higher-order `Observable`".
+
+## Finding the magic functions
+
+There are a lot of RxJS [operators](https://rxjs.dev/guide/operators) that may help us process `Observables`. We can flatten, process, or do even more things to help us shape our [pipe](https://rxjs.dev/guide/operators#piping).
+
+### Mapping each value with `map`
+
+[`map`](https://rxjs.dev/api/operators/map) operator takes an input `Observable` and maps each value to a different one, similar to the [Array.prototype.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function. A thing to keep in mind is that the input and the output will both be `Observable`s.
+
+<BlogImage src={Map} darkSrc={MapDark} alt="Marble diagram of the map operator">
+  Marble diagram of the `map` operator
+</BlogImage>
+
+### Flattening values with `mergeAll`
+
+[`mergeAll`](https://rxjs.dev/api/operators/mergeAll) operator flattens a higher-order `Observable` into a single `Observable`. But there is also another not well-documented functionality of `mergeAll`, which is flattening an `Observable<T[]>` into `Observable<T>`s. The following marble diagrams will explain these functionalities better.
+
+<BlogImage
+  src={MergeAllHigherOrder}
+  darkSrc={MergeAllHigherOrderDark}
+  alt="Marble diagram of the mergeAll operator for flattening higher-order observables"
+>
+  Using the `mergeAll` operator for flattening higher-order `Observable`s
+</BlogImage>
+
+<BlogImage
+  src={MergeAllArray}
+  darkSrc={MergeAllArrayDark}
+  alt="Marble diagram of the mergeAll operator for flattening an array"
+>
+  Using the `mergeAll` operator for flattening an `Observable<number[]>`
+</BlogImage>
+
+### Converting an array with `forkJoin`
+
+[`forkJoin`](https://rxjs.dev/api/index/function/forkJoin) function converts an `Observable<T>[]` into an `Observable<T[]>`. It also works similarly with objects as it works with arrays. It is different than `mergeAll`, as it only returns the combination of the latest values as an array or an object.
+
+<BlogImage
+  src={ForkJoin}
+  darkSrc={ForkJoinDark}
+  alt="Marble diagram of the forkJoin function"
+>
+  Using the `forkJoin` function to get a value from an array of `Observable`s
+</BlogImage>
+
+All three of these are quite important for processing various kinds of `Observable`s. We will use these (and a bonus one) for solving our problem.
+
+## A better model for our process
+
+Now that we know what the magic functions might be, we can create our initial solution for the problem.
+
+<BlogImage
+  src={InitialSolution}
+  darkSrc={InitialSolutionDark}
+  alt="Initial solution of the problem"
+>
+  Our initial solution for the problem
+</BlogImage>
+
+It works! But we aren't yet finished &mdash; we can still do better! Since the `map` and the `mergeAll` functions are used together so frequently, there is another function called `mergeMap` which combines both functionalities. Our final solution now looks like the image below.
+
+<BlogImage
+  src={FinalSolution}
+  darkSrc={FinalSolutionDark}
+  alt="Final solution of the problem"
+>
+  Our final solution for the problem
+</BlogImage>
+
+Nice and concise! I hope this tutorial helped you be more comfortable with the RxJS operators. Don't forget to check out other operators like [switchMap](https://rxjs.dev/api/operators/switchMap), [concatMap](https://rxjs.dev/api/operators/concatMap), [exhaustMap](https://rxjs.dev/api/operators/exhaustMap) and others.
+
+If you are more into code rather than diagrams, you can check out this [gist](https://gist.github.com/altugbakan/fab95c10ad0164782177fdaaf226aaeb) for the code for this solution. Note that some [tap](https://rxjs.dev/api/operators/tap)s are used for logging the current state without affecting any input or output values. Good luck with handling `Observable`s!

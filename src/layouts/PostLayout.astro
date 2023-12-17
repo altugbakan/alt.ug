@@ -14,11 +14,20 @@ const { post } = Astro.props;
   .post h2 {
     @apply text-2xl font-bold mt-4 mb-2;
   }
+  .post h3 {
+    @apply text-lg font-bold mt-3 mb-1;
+  }
   .post p {
     @apply mb-4;
   }
   .post a {
     @apply text-blue-700 dark:text-blue-500 hover:underline;
+  }
+  .post code:not(pre code) {
+    @apply bg-gray-300 dark:bg-gray-700 px-0.5 rounded;
+  }
+  .post pre {
+    @apply p-2 rounded-lg mb-4;
   }
 </style>
 

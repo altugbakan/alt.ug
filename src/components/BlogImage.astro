@@ -3,16 +3,33 @@ import { Image } from "astro:assets";
 
 interface Props {
   src: ImageMetadata;
+  darkSrc?: ImageMetadata;
   width: number;
   alt: string;
   className?: string;
 }
 
-const { src, alt, className } = Astro.props;
+const { src, darkSrc, alt, className } = Astro.props;
 ---
 
 <div class="my-4">
-  <Image {src} {alt} width={src.width} class={`mx-auto ${className}`} />
+  <Image
+    {src}
+    {alt}
+    width={src.width}
+    class={`mx-auto ${className} block ${darkSrc ? "dark:hidden" : ""}`}
+  />
+  {
+    darkSrc && (
+      <Image
+        src={darkSrc}
+        {alt}
+        width={src.width}
+        class={`mx-auto ${className} hidden dark:block`}
+      />
+    )
+  }
+
   <em class="text-center mx-auto block">
     <slot />
   </em>

@@ -12,7 +12,7 @@ const { project } = Astro.props;
   <a
     class="text-2xl font-bold mb-2 hover:underline"
     href={`/projects/${project.slug}`}
-    aria-label={`Details about ${project.data.name}`}>{project.data.name}</a
+    aria-label={`Details about ${project.data.title}`}>{project.data.title}</a
   >
   <p class="text-gray- dark:text-gray-400 mb-2">
     {project.data.description}
@@ -22,18 +22,17 @@ const { project } = Astro.props;
       href={project.data.url}
       rel="noopener noreferrer"
       target="_blank"
-      aria-label={`Visit project ${project.data.name}'s webpage`}
+      aria-label={`Visit project ${project.data.title}'s webpage`}
     >
-      <span
-        class="icon-[mdi--globe] text-xl hover:scale-110" />
+      <span class="icon-[mdi--globe] text-xl hover:scale-110"></span>
     </a>
     <a
       href={project.data.github}
       rel="noopener noreferrer"
       target="_blank"
-      aria-label={`Visit project ${project.data.name}'s GitHub`}
+      aria-label={`Visit project ${project.data.title}'s GitHub`}
     >
-      <span class="icon-[mdi--github] text-xl hover:scale-110" />
+      <span class="icon-[mdi--github] text-xl hover:scale-110"></span>
     </a>
   </div>
 </div>

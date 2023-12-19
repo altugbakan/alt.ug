@@ -31,7 +31,10 @@ const { post } = Astro.props;
   }
 </style>
 
-<BaseLayout title={post.data.title}>
+<BaseLayout
+  title={post.data.title}
+  image={`https://alt.ug/og/${post.slug}.png`}
+>
   <h1 class="text-4xl font-bold">{post.data.title}</h1>
   <Tags
     tags={post.data.tags}

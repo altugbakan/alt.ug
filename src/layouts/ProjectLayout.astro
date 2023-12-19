@@ -28,8 +28,11 @@ const { project } = Astro.props;
   }
 </style>
 
-<BaseLayout title={project.data.name}>
-  <h1 class="text-4xl font-bold mb-4">{project.data.name}</h1>
+<BaseLayout
+  title={project.data.title}
+  image={`https://alt.ug/og/${project.slug}.png`}
+>
+  <h1 class="text-4xl font-bold mb-4">{project.data.title}</h1>
   <div class="project">
     <slot />
   </div>

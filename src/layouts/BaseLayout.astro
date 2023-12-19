@@ -4,14 +4,21 @@ import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Altuğ's Personal Webpage",
+  image = "https://alt.ug/images/meta.png",
+} = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>{title}</title>
     <meta name="description" content="Altuğ's Personal Webpage" />
     <meta name="viewport" content="width=device-width" />
     <meta name="robots" content="index, follow" />
@@ -27,25 +34,24 @@ const { title } = Astro.props;
       as="style"
       onload="this.onload=null; this.rel='stylesheet'; document.body.classList.add('fontLoaded')"
     />
-    <title>{title}</title>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://alt.ug/" />
     <meta property="og:title" content="Altuğ Bakan" />
-    <meta property="og:description" content="My personal website" />
-    <meta property="og:image" content="https://alt.ug/images/meta.png" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://alt.ug/" />
     <meta property="twitter:title" content="Altuğ Bakan" />
-    <meta property="twitter:description" content="My personal website" />
-    <meta property="twitter:image" content="https://alt.ug/images/meta.png" />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
 
     <style>
       html {
-        @apply bg-slate-100 bg-gradient-to-br from-slate-100 to-slate-200 text-black leading-relaxed pl-[calc(100vw-100%)];
+        @apply bg-slate-100 bg-gradient-to-br from-slate-100 to-slate-200 text-black font-sans leading-relaxed pl-[calc(100vw-100%)];
       }
       html.dark {
         @apply bg-zinc-900 from-zinc-900 to-zinc-800 text-gray-300;

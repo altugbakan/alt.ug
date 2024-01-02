@@ -5,9 +5,6 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
-      minHeight: {
-        screen: ["100vh", "100svh"] as any,
-      },
       fontFamily: {
         rubik: ["Rubik", "sans-serif"],
       },

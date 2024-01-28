@@ -8,10 +8,12 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@astrojs/mdx": "^1.1.5",
+    "@astrojs/sitemap": "^3.0.5",
     "@astrojs/tailwind": "^5.0.2",
     "astro": "^3.5.5",
     "astro-og-canvas": "^0.4.2",

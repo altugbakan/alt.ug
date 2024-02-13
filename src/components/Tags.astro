@@ -14,9 +14,7 @@ const { tags, className } = Astro.props;
         href={`/tags/${tag}`}
         class="hover:underline"
         aria-label={`Posts tagged ${tag}`}
-      >
-        {tag}
-      </a>,
+      >{tag}</a>,
       i < arr.length - 1 ? ", " : "",
     ])
   }

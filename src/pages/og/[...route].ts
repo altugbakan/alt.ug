@@ -8,7 +8,7 @@ const pages = Object.fromEntries(
   [...posts, ...projects].map(({ slug, data }) => [
     slug,
     { title: data.title, description: data.description },
-  ])
+  ]),
 );
 
 export const { getStaticPaths, GET } = OGImageRoute({

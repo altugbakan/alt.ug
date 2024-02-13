@@ -11,4 +11,5 @@ export default {
     },
   ],
   bracketSameLine: true,
+  htmlWhitespaceSensitivity: "strict",
 } satisfies Config;

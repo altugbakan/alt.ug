@@ -1,0 +1,25 @@
+---
+interface Props {
+  tagAmounts: Record<string, number>;
+  className?: string;
+}
+
+const { tagAmounts, className } = Astro.props;
+---
+
+<span class={className}>
+  {
+    Object.entries(tagAmounts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([tag, count], i) => (
+        <>
+          <a
+            href={`/tags/${tag}`}
+            class="hover:underline"
+            aria-label={`Posts tagged ${tag}`}
+          >{`${tag}(${count})`}</a>
+          {i < Object.entries(tagAmounts).length - 1 && ", "}
+        </>
+      ))
+  }
+</span>

@@ -1,10 +1,18 @@
 ---
 import LatestPosts from "../../components/LatestPosts.astro";
-import Tags from "../../components/Tags.astro";
+import TagList from "../../components/TagList.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("posts");
+const tags = posts.flatMap((post) => post.data.tags);
+const tagAmounts = tags.reduce(
+  (acc, tag) => {
+    acc[tag] = (acc[tag] || 0) + 1;
+    return acc;
+  },
+  {} as Record<string, number>
+);
 ---
 
 <BaseLayout title="Altuğ's Blog">
@@ -12,6 +20,6 @@ const posts = await getCollection("posts");
   <LatestPosts count={5} />
   <h1 class="text-4xl font-bold text-center my-6">Tags</h1>
   <p class="flex flex-row flex-wrap gap-2">
-    <Tags tags={posts.flatMap((post) => post.data.tags)} />
+    <TagList {tagAmounts} />
   </p>
 </BaseLayout>

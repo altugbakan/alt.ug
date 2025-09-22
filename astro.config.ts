@@ -4,6 +4,6 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://alt.ug",
+  site: "https://altugbakan.github.io",
   integrations: [tailwind(), mdx(), sitemap()],
 });
